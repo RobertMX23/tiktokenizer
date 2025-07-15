@@ -64,7 +64,7 @@ function getChatGPTEncoding(
   return [
     messages
       .map(({ name, role, content }) => {
-        return `<|im_start|>${name || role}${roleSep}${content}<|im_end|>`;
+        return `<|im_start|>${role === 'system-name' ? name : role}${roleSep}${content}<|im_end|>`;
       })
       .join(msgSep),
     `<|im_start|>assistant${roleSep}`,
@@ -105,8 +105,7 @@ export function ChatGPTEditor(props: {
               onValueChange={(val) =>
                 setRows((rows) => {
                   const newRows = [...rows];
-                  // @ts-expect-error
-                  newRows[i].role = val;
+                  (newRows[i] as any).role = val;
                   return newRows;
                 })
               }
