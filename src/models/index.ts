@@ -75,6 +75,7 @@ export const openSourceModels = z.enum([
   "microsoft/phi-2",
   "google/gemma-7b",
   "deepseek-ai/DeepSeek-R1",
+  "deepseek-ai/DeepSeek-V4-Pro",
   "Qwen/Qwen2.5-72B",
   // "mistralai/Mistral-7B-v0.1",
   "tiiuae/falcon-7b",
